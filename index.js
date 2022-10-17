@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const twit = require("twit");
 require('dotenv').config()
 
+// Verifying you keys and tokens
 const credentials = new twit({
     consumer_key: process.env.API_KEY,
     consumer_secret: process.env.API_SECRET,
@@ -10,24 +11,33 @@ const credentials = new twit({
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
   });
 
+//Prefix for checking the input
 const tweetCall = 'Tweet my message:'
 
+//Taking input from user
 client.on('message', (message) => {
 
+    //Tweeter Function 
     const tweeterFunction = () => {
-        const tweetToBeSent = message.content.substring(18);
+
+        //Removing the tweetCall from actuall tweet
+        const tweetToBeSent = message.content.substring(18); 
+        
+        //This tweets the message
         credentials.post("statuses/update", { status: tweetToBeSent });
       };
     
+
+    //Checking the twitter tweet length criteria 
     if (message.content.startsWith(tweetCall) && message.content.substring(18).length <= 280){
         message.reply('Woohoo, your tweet has been sent :)');
-        tweeterFunction();
+        tweeterFunction();  // Calling the function to tweet the message
     }
-    
     if(message.content.substring(18).length > 280){
       message.reply('Sorry, but twiiter allows only 280 characters');
     }
   });
 
+//Discord bot token
 client.login(process.env.TOKEN);
 
