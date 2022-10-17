@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const twit = require("twit");
 require('dotenv').config()
 
-// Verifying you keys and tokens
+// Verifying your keys and tokens
 const credentials = new twit({
     consumer_key: process.env.API_KEY,
     consumer_secret: process.env.API_SECRET,
@@ -20,7 +20,7 @@ client.on('message', (message) => {
     //Tweeter Function 
     const tweeterFunction = () => {
 
-        //Removing the tweetCall from actuall tweet
+        //Removing the tweetCall from actual tweet
         const tweetToBeSent = message.content.substring(18); 
         
         //This tweets the message
@@ -34,7 +34,7 @@ client.on('message', (message) => {
         tweeterFunction();  // Calling the function to tweet the message
     }
     if(message.content.substring(18).length > 280){
-      message.reply('Sorry, but twiiter allows only 280 characters');
+      message.reply('Sorry, but twitter allows only 280 characters');
     }
   });
 
