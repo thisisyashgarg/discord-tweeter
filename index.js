@@ -1,4 +1,5 @@
-const Discord = require('discord.js');
+//import use karo, twitter aur dc ke alag files, callback function for logging error, why use es6, store constants in new file
+const Discord = require('discord.js'); 
 const client = new Discord.Client();
 const twit = require("twit");
 require('dotenv').config()
@@ -19,9 +20,10 @@ client.on('message', (message) => {
 
     //Tweeter Function 
     const tweeterFunction = () => {
-
+      
         //Removing the tweetCall from actual tweet
-        const tweetToBeSent = message.content.substring(18); 
+        const tweetToBeSent = example.split(tweetCall)[1]; 
+        console.log(tweetToBeSent);
         
         //This tweets the message
         credentials.post("statuses/update", { status: tweetToBeSent });
@@ -29,11 +31,11 @@ client.on('message', (message) => {
     
 
     //Checking the twitter tweet length criteria 
-    if (message.content.startsWith(tweetCall) && message.content.substring(18).length <= 280){
-        message.reply('Woohoo, your tweet has been sent :)');
-        tweeterFunction();  // Calling the function to tweet the message
+    if (message.content.startsWith(tweetCall) && message.content.split(tweetCall)[1].length <= 280){
+        tweeterFunction(); // Calling the function to tweet the message
+        message.reply('Woohoo, your tweet has been sent :)');  
     }
-    if(message.content.substring(18).length > 280){
+    if(message.content.startsWith(tweetCall) && message.content.split(tweetCall)[1].length > 280){
       message.reply('Sorry, but twitter allows only 280 characters');
     }
   });
