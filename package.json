@@ -2,7 +2,8 @@
   "name": "bot",
   "version": "1.0.0",
   "description": "",
-  "main": "tweet.js",
+  "main": "index2.js",
+  "type" : "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
