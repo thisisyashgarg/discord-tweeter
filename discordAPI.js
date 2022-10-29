@@ -5,9 +5,9 @@ import tweeterFunction from './twitterAPI.js'
 import tweetCall from './index2.js'
 
 //Global variable fror exporting
-let msg ;
+export let msg ;
 
-const input = () =>{
+export default function input () {
     client.on ('message', (message) => {
 
         //assigning msg to message
@@ -27,4 +27,4 @@ const input = () =>{
 //Discord bot token
 client.login(process.env.TOKEN);
 
-export {input, msg};
+
