@@ -22,7 +22,7 @@ In order to use this project, you should have the following prerequisites:
 First, clone the project from the Github Repository : 
 
 ```
-git clone 
+git clone https://github.com/thisisyashgarg/discord-tweeter-bot.git 
 ```
  And then, install the dependencies:
 
