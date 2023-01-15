@@ -3,8 +3,6 @@
 ## What is Discord Tweeter Bot?
 > #### Discord Tweeter Bot is a discord bot that basically takes your input, a tweet of yours that you want to post, and directly posts it through your twitter profile.
 
-This project is for sending tweets directly from discord.js.
-
 ### Prerequisites
 
 In order to use this project, you should have the following prerequisites:
